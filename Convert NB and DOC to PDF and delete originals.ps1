@@ -1,9 +1,9 @@
 #Converts both .nb and .docx to pdf and deletes originals
+#It is just a one-step process. Set your main parent folder here. It will search this folder and all subfolders inside it, and undertakes conversions and deletion.  
 
-#Set your main parent folder here. It will search this folder and all subfolders inside it:
 $folderPath = "C:\Users\Rajendra\Desktop\FolderName"
 
-# Get all target document types across all subfolders (-Recurse)
+#Get all target document types across all subfolders (-Recurse)
 $targetFiles = Get-ChildItem -Path $folderPath -Recurse | Where-Object { 
     $_.Extension -match "^\.(nb|docx|doc|docs)$" -and $_.Name -notlike "~$*"
 }
